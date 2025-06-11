@@ -1,0 +1,75 @@
+/* 全局样式 */
+.containerd {
+  background-color: antiquewhite;
+    color: white;
+    height:100vh;
+    background-image:url(https://t3.ftcdn.net/jpg/05/44/38/60/240_F_544386064_QZE6YdbOLOc7bsEtQDOnGGdxHrQ0WnUI.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.new{
+  background-image: url(https://imgur.com/a/nUSxnhk);
+}
+
+/* 联系部分 */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contact-info {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+            background-color: #B4B7FA;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-label {
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+.contact-value {
+    font-weight: 600;
+}
+
+.contact-value a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-value a:hover {
+    color: var(--accent-color);
+}

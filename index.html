@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CV</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>  
+<html lang="zh-MO">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>洪柏林的個人網站</title>  
+    <style>  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+            font-family: '思源黑体', sans-serif;  
+        }  
+        body {  
+            line-height: 1.6;  
+            color: #333;  
+            background-color: #BFE6FB;  
+        }  
+        /* 导航栏 */  
+        .navbar {  
+            position: fixed;  
+            top: 0;  
+            width: 100%;  
+            background: #fff;  
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+            z-index: 1000;  
+        }  
+        .nav-container {  
+            max-width: 1200px;  
+            margin: 0 auto;  
+            padding: 15px 20px;  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+        }  
+        .nav-logo {  
+            font-size: 1.5rem;  
+            font-weight: 700;  
+            color: #2196F3;  
+            text-decoration: none;  
+        }  
+        .nav-links a {  
+            margin-left: 30px;  
+            text-decoration: none;  
+            color: #10A5B2;  
+            font-weight: 500;  
+            transition: color 0.3s;  
+        }  
+        .nav-links a:hover {  
+            color: #B5E2FA;  
+        }  
+        /* 手机端导航（新增汉堡菜单） */  
+        .menu-toggle {  
+            display: none;  
+            font-size: 1.8rem;  
+            cursor: pointer;  
+            color: #333;  
+        }  
+        @media (max-width: 768px) {  
+            .nav-links {  
+                display: none;  
+                flex-direction: column;  
+                position: absolute;  
+                top: 100%;  
+                left: 0;  
+                width: 100%;  
+                background: #fff;  
+                padding: 20px;  
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+            }  
+            .nav-links a {  
+                margin: 10px 0;  
+                text-align: center;  
+            }  
+            .menu-toggle {  
+                display: block;  
+            }  
+        }  
+        /* 首页横幅 */  
+        .hero {   
+            background: #16D9EB;  
+            height:100vh;  
+            text-align: center;  
+        }  
+        .hero img {  
+            width: 200px;  
+            height: 200px;  
+            border-radius: 50%;  
+            border: 4px solid #fff;  
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+            margin-bottom: 20px;  
+        }  
+        .hero h1 {  
+            font-size: 2.5rem;  
+            color: #2196F3;  
+            margin-bottom: 10px;  
+        }  
+        .hero p {  
+            font-size: 1.1rem;  
+            color: #666;  
+            margin-bottom: 30px;  
+        }  
+        /* 按钮样式 */  
+        .btn {  
+            display: inline-block;  
+            padding: 12px 24px;  
+            border-radius: 25px;  
+            text-decoration: none;  
+            font-weight: 500;  
+            transition: transform 0.3s;  
+        }  
+        .btn-primary {  
+            background-color:#3EB3F2;  
+            color: #fff;  
+            margin-right: 10px;  
+        }  
+        .btn-primary:hover {  
+            background: #1976D2;  
+        }  
+        .btn-secondary {  
+            background: #fff;  
+            color: #2196F3;  
+            border: 2px solid #2196F3;  
+        }  
+        .btn-secondary:hover {  
+            background: #2196F3;  
+            color: #fff;  
+        }  
+        /* 内容区通用样式 */  
+        .container {  
+            max-width: 1200px;  
+            margin: 0 auto;  
+            padding: 0 20px;  
+        }  
+        /* 个人资料模块 */  
+        .profile-card {  
+            background: #fff;  
+            border-radius: 10px;  
+            padding: 30px;  
+            margin-bottom: 30px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+        }  
+        .profile-card h2 {  
+            color: #2196F3;  
+            margin-bottom: 15px;  
+            font-size: 1.75rem;  
+        }  
+        .profile-info {  
+            display: grid;  
+            grid-template-columns: 1fr;  
+            gap: 20px;  
+        }  
+        @media (min-width: 768px) {  
+            .profile-info {  
+                grid-template-columns: 1fr 1fr;  
+            }  
+        }  
+        .interest-tags {  
+            display: flex;  
+            gap: 10px;  
+            margin-top: 10px;  
+        }  
+        .interest-tag {  
+            background: #2196F3;  
+            color: #fff;  
+            padding: 5px 15px;  
+            border-radius: 20px;  
+            font-size: 0.9rem;  
+        }  
+        /* 技能列表 */  
+        .skills-list {  
+            list-style: none;  
+            padding-left: 20px;  
+        }  
+        .skills-list li {  
+            margin-bottom: 10px;  
+            position: relative;  
+            padding-left: 25px;  
+        }  
+        .skills-list li::before {  
+            content: "▶";  
+            color: #2196F3;  
+            position: absolute;  
+            left: 0;  
+        }  
+        /* 时间轴经历 */  
+        .timeline {  
+            position: relative;  
+            padding: 30px 0;  
+        }  
+        .timeline::before {  
+            content: "";  
+            position: absolute;  
+            width: 2px;  
+            background: #ddd; 
+            height: 100%;  
+            left: 50%;  
+            margin-left: -1px; 
+        }  
+        .timeline-item {  
+            margin-bottom: 40px;  
+            position: relative; 
+        }  
+        .timeline-content{  
+            width: 50%;  
+            padding: 20px;  
+            background: #fff;  
+            background-color: #F7C472;
+            border-radius: 5px;  
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+        }  
+        .timeline-item:nth-child(even) .timeline-content {  
+            float: right;
+        }  
+        @media (max-width: 768px) {  
+            .timeline::before {  
+                left: 30px; 
+            }  
+            .timeline-content {  
+                width: 100%;  
+                margin-left: 60px; 
+                float: none;
+            }  
+        }  
+        /* 证书与作品网格 */ 
+      .profile-card {  
+            background: #fff;  
+            border-radius: 10px;  
+            padding: 30px;  
+            margin-bottom: 30px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+        }  
+        .grid-container {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+            gap: 30px;  
+            margin-top: 40px;  
+          @media (min-width: 768px); 
+        }  
+        .grid-item {  
+            background: #ddd;  
+            border-radius: 10px;  
+            padding: 20px;  
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+            text-align: center;  
+        }  
+        .grid-item img {  
+            max-width: 100%;  
+            height: 200px;  
+            object-fit: cover;  
+            border-radius: 5px;  
+            margin-bottom: 15px;  
+        }  
+        /* 联系表单 */  
+        .contact-form {  
+            max-width: 600px;  
+            margin: 0 auto;
+        }  
+        .form-group {  
+            margin-bottom: 20px;
+        }  
+        input, textarea {  
+            width: 100%;  
+            padding: 12px;  
+            border: 1px solid #ddd;  
+            border-radius: 5px;  
+            font-size: 1rem;  
+            margin-bottom: 10px;  
+        }  
+        button {  
+            background: #2196F3;  
+            color: white;  
+            padding: 12px 30px;  
+            border: none;  
+            border-radius: 5px;  
+            cursor: pointer;  
+            width: 100%;  
+        }  
+        button:hover {  
+            background: #B4B7FA;  
+        }  
+        /* 页脚 */  
+        footer {  
+            background: #333;  
+            color: white;  
+            text-align: center;  
+            padding: 30px 20px;  
+            margin-top: 80px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <!-- 导航栏 -->  
+    <div class="navbar">  
+        <div class="nav-container">  
+            <a href=" " class="nav-logo">洪柏林的升學網站</a >  
+            <button class="menu-toggle" id="menuToggle">  
+                <i class="fas fa-bars"></i> <!-- 需引入Font Awesome图标库 -->  
+            </button>  
+            <div class="nav-links" id="navLinks">  
+                <a href="#home">首頁</a >  
+                <a href="#profile">個人簡歷</a >  
+                <a href="#portfolio">作品展示</a >  
+                <a href="#certificates">證書獎項</a >  
+                <a href="#contact">聯繫我</a >  
+            </div>  
+        </div>  
+    </div>  
+
+  
+    <!-- 首页横幅 -->  
+    <section class="hero" id="home">  
+        <div class="containerd">  
+            <h1>洪柏林</h1>  
+            <p>聖若瑟教區中學第五校 | 高三（2025屆） </p > 
+        </div>  
+    </section>
+
+    <!-- 個人簡歷頁（#profile） -->  
+    <section class="container" id="profile">  
+        <div class="profile-card">  
+            <h2>個人基本資料</h2>  
+            <div class="profile-info">  
+                <div>  
+                    <p><strong>姓名：</strong> 洪柏林</p >  
+                    <p><strong>學歷：</strong> 聖若瑟教區中學第五校 高三（2025-2026）</p >  
+                    <p><strong>聯絡方式：</strong></p >  
+                    <p>手機：+853 6275 2764 | 郵箱：hongpaklam08114@gmail.com</p >  
+                    <p>地址：澳門特別行政區台山市</p >  
+                </div>  
+                <div>  
+                    <h3>興趣與優勢標籤</h3>  
+                    <div class="interest-tags">  
+                        <span class="interest-tag">小提琴</span>  
+                        <span class="interest-tag">繪畫</span>  
+                        <span class="interest-tag">視頻剪輯</span>  
+                        <span class="interest-tag">團隊協作</span>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+
+        <div class="profile-card">  
+            <h2>技能與專長</h2>  
+            <ul class="skills-list">  
+                <li><strong>學科優勢</strong>：生物（平均分70+）、物理（平均分70+）、數學（校外競賽獲得參與獎）</li>  
+                <li><strong>技術技能</strong>：  
+                    <ul>  
+                        <li>紅十字會（圓滿結束課堂並通過考驗）</li>  
+                        <li>學校弦樂團（與大家在校園共同表演，帶來精彩的音樂）</li>  
+                        <li>政府義工培訓結業（累計服務時長12+小時）</li>  
+                    </ul>  
+        </div>  
+
+        <div class="profile-card">  
+            <h2>核心經歷與成就</h2>  
+            <div class="timeline">  
+                <div class="timeline-item">  
+                    <div class="timeline-content">  
+                        <h3>2024年</h3>  
+                        <p><strong>澳門環境保護局加分計劃</strong> 環保局金獎<br>（積極參與環保減廢回收工作,有堅毅向前的決心）</p >  
+                    </div>  
+                </div>  
+                <div class="timeline-item">  
+                    <div class="timeline-content">  
+                        <h3>2025年</h3>  
+                      <p>銀娛天文盃 <br>沒有獲獎，但這次失誤令我明白宇宙無限大</br></p >  
+                    </div>  
+                </div>  
+                <div class="timeline-item">  
+                    <div class="timeline-content">  
+                        <h3>2024-2025年</h3>  
+                        <p><strong>學校義工隊核心成員</strong><br>積極參與校外義務工作。服務社會</p >  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+<!-- 作品展示頁（#portfolio） -->
+<section class="container" id="portfolio">
+    <h2 style="text-align: center; margin-bottom: 40px;">個人作品與成果</h2>  
+    <div class="grid-container">
+        <!-- 編程項目 -->  
+        <div class="profile-card">
+            <div class="grid-item">
+                <img src="#" alt="生物多樣性挑戰賽作品">
+                <h3>《全澳生物多樣性資料科學挑戰賽》</h3>  
+                <p>主題：觀察並記錄野生物種，將照片上載到 iNaturalist 應用程式。</p>  
+            </div>
+            <!-- 多媒體作品 -->  
+            <div class="grid-item">
+               <!-- 使用備用圖片顯示方案 -->
+<img src="https://imgur.com/15F5BGI.jpg" 
+     alt="澳門木板明信片作品">
+                <h3>《遺美澳門-木板明信片填色比賽》</h3>  
+                <p>時長：一個月去作畫、設計<br>題目：走進澳門舊城區，畫出一幅澳門歷史文化遺產的木板畫<br></p>  
+            </div>  
+        </div>
+    </div>
+</section>
+
+<!-- 證書獎項頁（#certificates） -->  
+<section class="container" id="certificates">  
+    <div class="profile-card">
+        <h2 style="text-align: center; margin-bottom: 40px;">獲獎與證書</h2>  
+        <div class="grid-container">  
+            <div class="grid-item">  
+                <img src="https://imgur.com/RP51xbI.jpg" alt="結業證書">  
+                <p><strong>2022年滅罪小先鋒種子計劃結業證書</strong></p>  
+            </div>  
+            <div class="grid-item">  
+                <img src="https://imgur.com/1h2EnQB.jpg" alt="木板填色比賽">  
+                <p><strong>2023年 木板明信片填色比賽獲得優異獎</strong></p>  
+            </div>  
+            <div class="grid-item">  
+                <img src="https://imgur.com/sKGlS3X.jpg" alt="小提琴二級考試">  
+                <p><strong>2025年皇家音樂學院小提琴二級考試</strong></p>  
+            </div>  
+            <div class="grid-item">  
+                <img src="https://i.imgur.com/RiP09Cy.jpg" alt="優秀志願者證書">  
+                <p><strong>2024年 青年義工獎勵計劃</strong><br>銀獎（志願服務時長200+小時）</p>  
+            </div>  
+        </div>  
+    </div>
+</section>
+
+    <!-- 聯繫頁（#contact） -->  
+<section class="container" id="contact">  
+  <div class="profile-card">
+    <h2 style="text-align: center; margin-bottom: 30px;">聯繫與交流</h2>  
+    <div class="contact-info">  
+        <!-- 联系方式卡片（适配手机端左右分栏） -->  
+        <div class="contact-card">  
+            <h3 class="contact-title">直接聯繫</h3>  
+            <div class="contact-item">  
+                <div class="contact-icon">  
+                    <i class="fas fa-envelope"></i> <!-- 邮箱图标 -->  
+                </div>  
+                <div class="contact-detail">  
+                    <p class="contact-label">電子郵箱</p >  
+                    <p class="contact-value">hongpaklam08114@gmail.com</p >  
+                </div>  
+            </div>  
+
+            <div class="contact-item">  
+                <div class="contact-icon">  
+                    <i class="fas fa-phone"></i> <!-- 手机图标 -->  
+                </div>  
+                <div class="contact-detail">  
+                    <p class="contact-label">手機號碼</p >  
+                    <p class="contact-value">+853 6275 2764</p >  
+                </div>  
+            </div>  
+        </div>  
+
+        <!-- 联系表单（保留交互布局） -->  
+        <div class="contact-form">  
+            <form>  
+                <div class="form-group">  
+                    <input type="text" placeholder="姓名" required>  
+                </div>  
+                <div class="form-group">  
+                    <input type="email" placeholder="電子郵箱" required>  
+                </div>  
+                <div class="form-group">  
+                    <textarea rows="5" placeholder="留言內容" required></textarea>  
+                </div>  
+                <button type="submit">發送留言</button>  
+            </form>  
+        </div>  
+    </div>  
+
+    <!-- 补充地址与联系时间（卡片式展示） -->  
+    <div class="contact-card mt-4">  
+        <h3 class="contact-title">聯繫詳情</h3>  
+        <div class="contact-item">  
+            <div class="contact-icon">  
+                <i class="fas fa-map-marker"></i> <!-- 地址图标 -->  
+            </div>  
+            <div class="contact-detail">  
+                <p class="contact-label">學校地址</p >  
+                <p class="contact-value">澳門特別行政區 聖若瑟教區中學第五校</p >  
+            </div>  
+        </div>  
+
+        <div class="contact-item">  
+            <div class="contact-icon">  
+                <i class="fas fa-clock"></i> <!-- 时间图标 -->  
+            </div>  
+            <div class="contact-detail">  
+                <p class="contact-label">最佳聯繫時間</p >  
+                <p class="contact-value">周一至周五 18:00-21:00</p >  
+            </div>  
+        </div>  
+    </div>  
+</section>  
+    <!-- 頁腳 -->  
+    <footer style="text-align: center; padding: 2rem; background-color: #FDE996;">  
+        <p>© 2025 洪柏林 | 個人升學網站</p >  
+    </footer> 
+</body>  
+</html>
+<!-- partial -->
+  
+</body>
+</html>
